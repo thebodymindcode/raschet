@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Расчёт за полмесяца, с 1 по 15 сентября 2026</title>
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=PT+Sans:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  --ground:#EFE6D8; --sheet:#F8F3EA; --sheet2:#F2EADC;
+  --ink:#2A241C; --ink-soft:#6E6255; --line:#DCCFBB; --line-hard:#C6B49A;
+  --plus:#3C6B4F; --minus:#8E3F2E; --gold:#8A6A2F;
+  --chip-d:#E4DCC9; --chip-a:#DFE4D8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:#1F1B16; --sheet:#282219; --sheet2:#2F2820;
+    --ink:#EFE5D4; --ink-soft:#AB9E8B; --line:#3C3428; --line-hard:#544936;
+    --plus:#87B694; --minus:#DC947D; --gold:#C6A15C;
+    --chip-d:#3A3226; --chip-a:#333A2E;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:#1F1B16; --sheet:#282219; --sheet2:#2F2820;
+  --ink:#EFE5D4; --ink-soft:#AB9E8B; --line:#3C3428; --line-hard:#544936;
+  --plus:#87B694; --minus:#DC947D; --gold:#C6A15C;
+  --chip-d:#3A3226; --chip-a:#333A2E;
+}
+* { box-sizing:border-box; }
+body {
+  background:var(--ground); color:var(--ink);
+  font-family:"PT Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:17px; line-height:1.55; margin:0; padding:28px 18px 90px;
+}
+.wrap { max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:34px; }
+h1,h2,h3 { font-family:"Bitter",Georgia,serif; text-wrap:balance; margin:0; }
+h1 { font-size:2.4rem; font-weight:700; letter-spacing:-.01em; }
+h2 { font-size:1.35rem; font-weight:600; margin-bottom:6px; }
+h3 { font-size:1.08rem; font-weight:600; }
+.num { font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.plus { color:var(--plus); }
+.minus { color:var(--minus); }
+header { border-bottom:2px solid var(--line-hard); padding-bottom:20px; }
+.eyebrow { font-family:"IBM Plex Mono",monospace; font-size:.76rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-soft); margin:0 0 8px; }
+header p.sub { color:var(--ink-soft); margin:8px 0 0; }
+section { background:var(--sheet); border:1px solid var(--line); border-radius:3px; padding:24px 26px; }
+.lead { color:var(--ink-soft); margin:0 0 16px; max-width:62ch; }
+/* итог */
+.verdict { background:var(--sheet); border:2px solid var(--gold); padding:30px 28px; text-align:left; }
+.verdict .eyebrow { color:var(--gold); }
+.verdict .money { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:clamp(2.1rem,7vw,3.4rem); font-weight:600; line-height:1.1; margin:6px 0 10px; color:var(--ink); }
+.verdict p { margin:0; color:var(--ink-soft); }
+.verdict strong { color:var(--ink); }
+/* цифры месяца */
+.grid4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); }
+.cell { background:var(--sheet); padding:18px 20px; }
+.cell .k { font-size:.82rem; color:var(--ink-soft); display:block; margin-bottom:4px; }
+.cell .v { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:1.28rem; font-weight:600; }
+/* таблицы */
+.tablewrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; }
+td, th { padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+th { font-family:"IBM Plex Mono",monospace; font-size:.74rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:500; border-bottom:1px solid var(--line-hard); }
+td.num, th.num { text-align:right; white-space:nowrap; font-weight:500; }
+td.who { white-space:nowrap; }
+td.dt { white-space:nowrap; color:var(--ink-soft); font-family:"IBM Plex Mono",monospace; font-size:.9rem; }
+.nm { display:block; font-weight:700; }
+.note { display:block; font-size:.84rem; color:var(--ink-soft); margin-top:2px; max-width:46ch; }
+tr.sum td { border-top:2px solid var(--line-hard); border-bottom:none; font-weight:700; padding-top:14px; }
+tfoot td { border-top:2px solid var(--line-hard); border-bottom:none; font-weight:700;
+  font-family:"Bitter",Georgia,serif; padding-top:14px; }
+.chip { display:inline-block; padding:2px 10px; border-radius:2px; font-size:.85rem;
+  border:1px solid var(--line-hard); }
+.chip-d { background:var(--chip-d); }
+.chip-a { background:var(--chip-a); }
+/* карточки */
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:16px; }
+.card { background:var(--sheet2); border:1px solid var(--line); padding:20px; }
+.card h3 { margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line-hard); }
+.step { display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  padding:6px 0; font-size:.95rem; }
+.step span { color:var(--ink-soft); }
+.step.total { border-top:2px solid var(--line-hard); margin-top:8px; padding-top:10px; font-size:1.05rem; }
+.step.total span { color:var(--ink); font-weight:700; }
+.step.total b { font-size:1.15rem; }
+.card p.big { font-size:1.7rem; font-weight:600; margin:0; }
+.card p.sub { color:var(--ink-soft); font-size:.9rem; margin:4px 0 0; }
+.check { font-size:.84rem; color:var(--plus); margin:10px 0 0; }
+.check::before { content:"✓ "; }
+h3.mini { font-size:.95rem; margin:22px 0 6px; color:var(--ink-soft); font-weight:500;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.06em; text-transform:uppercase; }
+h3.mini:first-of-type { margin-top:6px; }
+.ostatok { margin-top:20px; padding:16px 18px; background:var(--sheet2);
+  border-left:4px solid var(--gold); display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
+.ostatok > span:first-child { font-weight:700; }
+.ostatok b { font-size:1.3rem; }
+.ostatok .note { flex-basis:100%; max-width:60ch; margin:0; }
+/* открытые вопросы */
+.open { border-left:4px solid var(--gold); }
+.open ul { margin:0; padding-left:20px; }
+.open li { margin-bottom:9px; }
+.open li::marker { color:var(--gold); }
+footer { color:var(--ink-soft); font-size:.85rem; text-align:left; border-top:1px solid var(--line);
+  padding-top:18px; }
+@media (max-width:560px) {
+  body { padding:20px 12px 60px; font-size:16px; }
+  section { padding:18px 16px; }
+  .note { font-size:.8rem; }
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Совместный проект · Дарья и Алексей · 50 на 50</p>
+  <h1>Расчёт за полмесяца, с 1 по 15 сентября 2026</h1>
+  <p class="sub">Все деньги за полмесяца: что пришло, что потратили, сколько осталось каждому.</p>
+</header>
+
+<div class="verdict">
+  <p class="eyebrow">Итог за полмесяца</p>
+  <p class="money">118 998,36 ₽</p>
+  <p><strong>Дарья</strong> переводит эту сумму <strong>Алексею</strong> по итогам полумесяца. После этого у обоих на руках будет поровну, по 118 865,37 ₽.</p>
+</div>
+
+<div class="grid4">
+  <div class="cell"><span class="k">Пришло денег</span><span class="v plus">307 420,99 ₽</span></div>
+  <div class="cell"><span class="k">Общие расходы</span><span class="v minus">69 690,26 ₽</span></div>
+  <div class="cell"><span class="k">Чистая прибыль</span><span class="v">237 730,73 ₽</span></div>
+  <div class="cell"><span class="k">Доля каждого</span><span class="v">118 865,37 ₽</span></div>
+</div>
+
+<section>
+  <h2>Откуда пришли деньги</h2>
+  <p class="lead">Считаем всё, что зашло за полмесяца: и продажи через Prodamus, и прямые оплаты на карту.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Источник</th><th>Кому пришло</th><th class="num">Сумма</th></tr></thead>
+    <tbody><tr><td><span class="nm">Prodamus</span><span class="note">105 платежей на 324 171,00 ₽, минус комиссии 16 750,01 ₽ и возвраты 0,00 ₽</span></td><td class="who">Дарья</td><td class="num plus">307 420,99 ₽</td></tr>
+</tbody>
+    <tfoot><tr><td>Всего пришло</td><td></td><td class="num plus">307 420,99 ₽</td></tr></tfoot>
+  </table></div>
+</section>
+
+    <section>
+      <h2>Как посчитан доход Prodamus</h2>
+      <p class="lead">Берём не всю сумму платежей, а то, что реально осталось после возвратов и комиссий площадки.</p>
+      <div class="tablewrap"><table>
+        <tr><td><span class="nm">Все платежи за полмесяца</span><span class="note">105 платежей</span></td><td class="num">324 171,00 ₽</td></tr>
+        <tr><td><span class="nm">Возвраты покупателям</span></td><td class="num minus">−0,00 ₽</td></tr>
+        <tr><td><span class="nm">Лицензионное вознаграждение Prodamus</span></td><td class="num minus">−16 101,66 ₽</td></tr>
+        <tr><td><span class="nm">Агентское вознаграждение</span></td><td class="num minus">−648,35 ₽</td></tr>
+        <tr class="sum"><td><span class="nm">Заработано, чистыми</span></td><td class="num plus">307 420,99 ₽</td></tr>
+      </table></div>
+    </section>
+<section>
+  <h2>Куда ушли деньги</h2>
+  <p class="lead">Общие расходы проекта. Неважно, кто из двоих заплатил: сумма всё равно делится пополам, а тому, кто платил своими, это возвращается в расчёте.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>На что</th><th>Платил</th><th class="num">Сумма</th></tr></thead>
+    <tbody><tr><td><span class="nm">Claude Max 20x, подписка</span><span class="note">оплата 4 сентября, курс 91 ₽ за доллар по решению Алексея | 232 $ по курсу 91 ₽</span></td><td class="who"><span class="chip chip-d">Дарья</span></td><td class="num minus">21 112,00 ₽</td></tr>
+<tr><td><span class="nm">УСН 6% с оборота</span><span class="note">база 307 420,99 ₽ (доходы с флагом налога)</span></td><td class="who"><span class="chip chip-d">Дарья</span></td><td class="num minus">18 445,26 ₽</td></tr>
+<tr><td><span class="nm">Syntx.ai, видеогенерация</span><span class="note">15.09 15:14, квитанция 1-106-454-466-625</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">10 191,50 ₽</td></tr>
+<tr><td><span class="nm">Видеогенерация, оплата через Plati</span><span class="note">03.09 05:13, ООО «Фьюче Тех», квитанция 1-115-355-925-260</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">5 077,22 ₽</td></tr>
+<tr><td><span class="nm">Видеогенерация, оплата через Plati</span><span class="note">13.09 05:45, квитанция 1-105-452-558-725</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">5 046,67 ₽</td></tr>
+<tr><td><span class="nm">Видеогенерация, оплата через Plati</span><span class="note">07.09 07:27, квитанция 1-107-448-000-613</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">5 040,00 ₽</td></tr>
+<tr><td><span class="nm">SMMBot, подписка</span><span class="note">06.09 15:32, квитанция 1-115-358-875-213</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">3 999,00 ₽</td></tr>
+<tr><td><span class="nm">Аеза, хостинг</span><span class="note">07.09 12:00, квитанция 1-123-400-321-520</span></td><td class="who"><span class="chip chip-a">Алексей</span></td><td class="num minus">778,61 ₽</td></tr>
+</tbody>
+    <tfoot><tr><td>Всего потрачено</td><td></td><td class="num minus">69 690,26 ₽</td></tr></tfoot>
+  </table></div>
+</section>
+
+
+<section>
+  <h2>Кто сколько вложил своих денег</h2>
+  <p class="lead">Это те общие расходы, которые человек оплатил из своего кармана. В расчёте они возвращаются, поэтому важно видеть их поимённо.</p>
+  <div class="cards"><div class="card"><h3>Дарья</h3><div class="step"><span>Claude Max 20x, подписка</span><b class="num">21 112,00 ₽</b></div><div class="step"><span>УСН 6% с оборота</span><b class="num">18 445,26 ₽</b></div><div class="step total"><span>Всего вложила своих</span><b class="num">39 557,26 ₽</b></div></div><div class="card"><h3>Алексей</h3><div class="step"><span>Syntx.ai, видеогенерация</span><b class="num">10 191,50 ₽</b></div><div class="step"><span>Видеогенерация, оплата через Plati</span><b class="num">5 077,22 ₽</b></div><div class="step"><span>Видеогенерация, оплата через Plati</span><b class="num">5 046,67 ₽</b></div><div class="step"><span>Видеогенерация, оплата через Plati</span><b class="num">5 040,00 ₽</b></div><div class="step"><span>SMMBot, подписка</span><b class="num">3 999,00 ₽</b></div><div class="step"><span>Аеза, хостинг</span><b class="num">778,61 ₽</b></div><div class="step total"><span>Всего вложил своих</span><b class="num">30 133,00 ₽</b></div></div></div>
+</section>
+
+<section>
+  <h2>Переводы за полмесяца</h2>
+  <p class="lead">Деньги, которые переводили друг другу, не дожидаясь расчёта. Они идут в зачёт доли того, кто их получил.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Когда</th><th>Кто кому</th><th class="num">Сумма</th></tr></thead>
+    <tbody><tr><td class="dt">09 сен.</td><td>Дарья  →  Алексей</td><td class="num">30 000,00 ₽</td></tr>
+</tbody>
+    <tfoot><tr><td>Всего</td><td></td><td class="num">30 000,00 ₽</td></tr></tfoot>
+  </table></div>
+</section>
+
+<section>
+  <h2>Как получилась итоговая цифра</h2>
+  <p class="lead">Проверка по каждому: складываем всё, что человек получил и потратил, добавляем расчёт. Должна получиться ровно его доля.</p>
+  <div class="cards"><div class="card"><h3>Дарья</h3><div class="step"><span>Пришло денег за полмесяца</span><b class="num plus">+307 420,99 ₽</b></div><div class="step"><span>Оплатил(а) общих расходов</span><b class="num minus">-39 557,26 ₽</b></div><div class="step"><span>Перевёл(а) партнёру за полмесяца</span><b class="num minus">-30 000,00 ₽</b></div><div class="step"><span>Расчёт за полмесяца</span><b class="num minus">-118 998,36 ₽</b></div><div class="step total"><span>Остаётся на руках</span><b class="num">118 865,37 ₽</b></div><p class="check">Совпадает с долей 118 865,37 ₽</p></div>
+<div class="card"><h3>Алексей</h3><div class="step"><span>Пришло денег за полмесяца</span><b class="num ">0,00 ₽</b></div><div class="step"><span>Оплатил(а) общих расходов</span><b class="num minus">-30 133,00 ₽</b></div><div class="step"><span>Получил(а) переводами за полмесяца</span><b class="num plus">+30 000,00 ₽</b></div><div class="step"><span>Расчёт за полмесяца</span><b class="num plus">+118 998,36 ₽</b></div><div class="step total"><span>Остаётся на руках</span><b class="num">118 865,36 ₽</b></div><p class="check">Совпадает с долей 118 865,37 ₽</p></div>
+</div>
+</section>
+
+
+    <section class="open">
+      <h2>Примечания к расчёту</h2>
+      <ul><li>Курс доллара: 91 ₽. По нему пересчитана подписка Claude Max, 232 $.</li></ul>
+    </section>
+
+<footer>
+  Источники цифр: кабинет Prodamus, выписки Т-Банка, квитанции по каждой оплате.
+  Страница собирается из файла данных автоматически, руками цифры в неё не вписываются.
+</footer>
+
+</div>
+
+</body>
+</html>
